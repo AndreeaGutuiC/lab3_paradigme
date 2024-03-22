@@ -8,8 +8,7 @@ public class PasswordMaker {
     static final int MAGIC_NUMBER = 238;
     static  String MAGIC_STRING;
     String password;
-
-        String name;
+    String name;
 
     public PasswordMaker(String name){
         this.name = name;
