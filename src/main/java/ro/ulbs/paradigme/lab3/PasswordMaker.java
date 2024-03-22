@@ -5,16 +5,17 @@ import ro.ulbs.paradigme.lab3.util.StringRandomizer;
 import java.util.Random;
 
 public class PasswordMaker {
-    static final int MAGIC_NUMBER = 238;
+    static final int MAGIC_NUMBER = 5;
     static  String MAGIC_STRING;
-    String password;
-    String name;
+    private String password;
+    private String name;
+    private static PasswordMaker instance;
 
-    public PasswordMaker(String name){
+
+    private PasswordMaker(){
         this.name = name;
+        this.password = password;
     }
-
-
 
     java.util.Random rand = new java.util.Random();
 
@@ -42,7 +43,7 @@ public class PasswordMaker {
         return rand.nextInt(101);
     }
 
-    public String getPassword(){
+    public String getPassword(String name){
 
         String lungime;
         lungime = " " + name.length();
@@ -50,7 +51,11 @@ public class PasswordMaker {
         return password;
     }
 
-
-
+    public static PasswordMaker getInstance(){
+        if(instance == null){
+            instance = new PasswordMaker();
+        }
+        return instance;
+    }
 
 }

@@ -24,6 +24,11 @@ public class Main {
         System.out.println("Triangle3 equals to Triangle1: " + tri.equals(tri3));
         System.out.println("number of objects: " + f1.getCounter());
 
+        System.out.println("--------------------------------");
+        String x = PasswordMaker.getInstance().getPassword("Andreea");
+        System.out.println(x);
+
+
 
     }
 }
