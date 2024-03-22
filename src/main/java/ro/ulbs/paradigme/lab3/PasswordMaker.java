@@ -6,15 +6,19 @@ import java.util.Random;
 
 public class PasswordMaker {
     static final int MAGIC_NUMBER = 5;
-    static  String MAGIC_STRING;
+    static String MAGIC_STRING;
     private String password;
     private String name;
+    static private int contor;
     private static PasswordMaker instance;
-    static{
+
+    static {
         instance = null;
+        contor = 0;
     }
 
-    private PasswordMaker(){
+
+    private PasswordMaker() {
         this.name = name;
         this.password = password;
     }
@@ -25,15 +29,16 @@ public class PasswordMaker {
         int countLetters = 'z' - 'a';
         char result[] = new char[n];
 
-        for(int i=0; i<n; i++) {
-            result[i] = (char)('a' + rand.nextInt(countLetters));
+        for (int i = 0; i < n; i++) {
+            result[i] = (char) ('a' + rand.nextInt(countLetters));
         }
         return new String(result);
     }
+
     public String randomString(int n, String alphabet) {
         int countLetters = alphabet.length();
         char result[] = new char[n];
-        for(int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             result[i] = alphabet.charAt(rand.nextInt(countLetters));
         }
 
@@ -41,23 +46,31 @@ public class PasswordMaker {
 
 
     }
+
     private int randomNumber() {
         return rand.nextInt(101);
     }
 
-    public String getPassword(String name){
+    public String getPassword(String name) {
 
         String lungime;
         lungime = " " + name.length();
-        password = randomString(MAGIC_NUMBER) + randomString(MAGIC_NUMBER, name) +name.length() + randomNumber();
+        password = randomString(MAGIC_NUMBER) + randomString(MAGIC_NUMBER, name) + name.length() + randomNumber();
         return password;
     }
 
-    public static PasswordMaker getInstance(){
-        if(instance == null){
+    public static PasswordMaker getInstance() {
+        contor++;
+        if (instance == null) {
             instance = new PasswordMaker();
+
         }
+
         return instance;
+    }
+
+    public int getContor(){
+        return contor;
     }
 
 }

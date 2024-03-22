@@ -25,8 +25,9 @@ public class Main {
         System.out.println("number of objects: " + f1.getCounter());
 
         System.out.println("--------------------------------");
-        String x = PasswordMaker.getInstance().getPassword("Andreea");
-        System.out.println(x);
+        PasswordMaker obj = PasswordMaker.getInstance();
+        System.out.println(obj.getPassword("Andreea"));
+        System.out.println(obj.getContor());
 
 
 
